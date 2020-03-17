@@ -1,0 +1,16 @@
+{
+  "name": "super-sweet-mailer",
+  "version": "1.0.0",
+  "description": "This is a mail sending app built with the power of Gatsby + Serverless",
+  "main": "index.js",
+  "author": "pranjal.agnihotri6@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop"
+  },
+  "dependencies": {
+    "gatsby": "^2.19.45",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}

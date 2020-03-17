@@ -1,0 +1,8 @@
+[build]
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

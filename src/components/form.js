@@ -41,7 +41,7 @@ const Form = () => {
       value: 'PENDING'
     });
 
-    fetch('/api/mail', {
+    fetch('/api/sendgrid', {
       method: 'POST',
       body: JSON.stringify(formState)
     })

@@ -9,6 +9,7 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.5.4",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.45",
     "mailgun-js": "^0.22.0",

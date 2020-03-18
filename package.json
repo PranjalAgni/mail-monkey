@@ -9,7 +9,9 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^2.19.45",
+    "mailgun-js": "^0.22.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   }

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import window from 'global';
 
 const API_URL =
   window.location.hostname === 'localhost'

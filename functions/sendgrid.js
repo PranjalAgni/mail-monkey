@@ -6,7 +6,7 @@ exports.handler = function(event, _context, callback) {
 
   // Data to send
   const data = JSON.parse(event.body);
-
+  console.log('Data: ', data);
   const msg = {
     to: data.email,
     from: 'Sweet Mails <sweet@mails.com>',
@@ -16,7 +16,7 @@ exports.handler = function(event, _context, callback) {
 
   sgMail
     .send(msg)
-    .then(res => {
+    .then(() => {
       callback(null, {
         statusCode: 200,
         body: JSON.stringify({

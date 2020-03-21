@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import decideAndFireRequest from '../API';
 import styles from './form.module.css';
 
 const initalState = {
@@ -6,6 +7,7 @@ const initalState = {
   email: '',
   subject: '',
   body: '',
+  attachment: null,
   status: 'IDLE'
 };
 
@@ -35,31 +37,39 @@ const Form = () => {
     sendMail();
   };
 
+  const handleAttachments = field => event => {
+    // const files = Array.from(event.target.files);
+
+    dispatch({
+      type: 'UPDATE_INPUT',
+      key: field,
+      value: event.target.files[0]
+    });
+  };
+
   const sendMail = () => {
     dispatch({
       type: 'UPDATE_STATUS',
       value: 'PENDING'
     });
 
-    fetch('/api/sendgrid', {
-      method: 'POST',
-      body: JSON.stringify(formState)
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log('Response: ', res);
-        dispatch({
-          type: 'UPDATE_STATUS',
-          value: 'SUCCESS'
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        dispatch({
-          type: 'UPDATE_STATUS',
-          value: 'ERROR'
-        });
+    const successHandler = res => {
+      console.log('Response: ', res);
+      dispatch({
+        type: 'UPDATE_STATUS',
+        value: 'SUCCESS'
       });
+    };
+
+    const errorHandler = err => {
+      console.error(err);
+      dispatch({
+        type: 'UPDATE_STATUS',
+        value: 'ERROR'
+      });
+    };
+
+    decideAndFireRequest(formState, successHandler, errorHandler);
   };
 
   const updateFieldValue = field => event =>
@@ -137,6 +147,16 @@ const Form = () => {
             name="body"
             value={formState.body}
             onChange={updateFieldValue('body')}
+          />
+        </label>
+        <label className={styles.label}>
+          File
+          <input
+            className={styles.input}
+            type="file"
+            id="multi"
+            onChange={handleAttachments('attachment')}
+            multiple
           />
         </label>
         <button className={styles.button}>Send</button>

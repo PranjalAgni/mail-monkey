@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [{
+    "src": "src/server.js",
+    "use": "@now/node-server"
+  }],
+  "routes": [{
+    "src": "/.*",
+    "dest": "src/server.js"
+  }],
+  "alias": [
+    "gatsby-mailer-backend"
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "SENDGRID_API_KEY": "@sendgrid_api_key"
+  }
+}

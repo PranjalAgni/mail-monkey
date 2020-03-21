@@ -1,8 +1,7 @@
 import axios from 'axios';
-import window from 'global';
 
-const API_URL =
-  window.location.hostname === 'localhost'
+let API_URL =
+  typeof window !== 'undefined' && window.location.hostname === 'localhost'
     ? 'http://localhost:4040'
     : 'https://gatsby-mailer-backend.now.sh';
 

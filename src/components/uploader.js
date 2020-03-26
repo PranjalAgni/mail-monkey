@@ -53,9 +53,6 @@ const ImageUploader = () => {
         },
         err => {
           console.error('Error: ', err);
-          dispatch({
-            type: 'FAILURE'
-          });
         }
       );
       uploadTask.snapshot.ref

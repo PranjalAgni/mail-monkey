@@ -1,0 +1,11 @@
+{
+  "name": "Mail monkey API",
+  "version": "0.1.0",
+  "description": "Details of all the APIs",
+  "title": "Mail monkey API Details",
+  "url" : "http://localhost:4040/api/mailer",
+  "apidoc": {
+    "title": "Mail monkey API Details",
+    "url" : "http://localhost:4040/api/mailer"
+  }
+}

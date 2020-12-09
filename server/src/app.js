@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+require('dotenv').config();
 
 const middlewares = require('./middlewares');
 const mailer = require('./api/mailer');
@@ -13,7 +14,7 @@ app.use(cors());
 
 app.get('/', (req, res) => {
   res.json({
-    status: 'Hey!!'
+    status: 'Hey!!',
   });
 });
 
